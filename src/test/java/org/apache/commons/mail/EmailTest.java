@@ -180,4 +180,12 @@ public class EmailTest {
 		
 		testEmail.getSocketConnectionTimeout(); //calls the method
 	}
+	
+	@Test //tests if correct argument is passed to setFrom
+	public void testSetFrom() throws Exception {
+		
+		testEmail.setFrom(TEST_EMAILS[0]); //passes first email address from array
+		
+		assertEquals(TEST_EMAILS[0], String.valueOf(testEmail.getFromAddress())); //checks if from address is now the first email from array
+	}
 }
