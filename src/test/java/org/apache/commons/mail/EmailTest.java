@@ -145,4 +145,33 @@ public class EmailTest {
 				
 		assertEquals(hostName, testEmail.getHostName()); //checks to see if the host name is equal to the argument passed
 	}
+	
+	@Test //tests if an incorrect null argument is passed to getHostNameCorrect
+	public void testGetHostNameIncorrect() throws Exception {
+		
+		String hostName = null; //null host name string
+		
+		testEmail.setHostName(hostName); //passes the null string
+				
+		assertEquals(hostName, testEmail.getHostName()); //checks to see if they are both null
+	}
+	
+	@Test //tests if correct arguments are passed to getSentDate
+	public void testGetSentDateCorrect() throws Exception {
+		
+		Date testDate = new Date(System.currentTimeMillis()); //date with current time
+		
+		testEmail.setSentDate(testDate); //passes current date argument
+				
+		assertEquals(testDate, testEmail.getSentDate()); //checks if dates are equal - passed argument date and sent date
+	}
+	
+	@Test //tests if an incorrect null argument is passed to getSentDate
+	public void testGetSentDateIncorrect() throws Exception {
+		
+		Date testDate = null; //null date
+		
+		testEmail.setSentDate(testDate); //passes in the null date		
+		testEmail.getSentDate(); //attempts to get null date data from method
+	}
 }
