@@ -36,5 +36,12 @@ public class EmailTest {
 		
 	}
 	
-	
+	@Test //tests if a correct argument is passed to addBcc
+	public void testAddBccCorrect() throws Exception {
+		
+		testEmail.addBcc(TEST_EMAILS); //testing the addBcc function with the full list of test emails
+		
+		assertEquals(3, testEmail.getBccAddresses().size()); //checking if the size of the BCC address list is equal to 3
+		
+	}
 }
