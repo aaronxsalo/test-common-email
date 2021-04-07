@@ -174,4 +174,10 @@ public class EmailTest {
 		testEmail.setSentDate(testDate); //passes in the null date		
 		testEmail.getSentDate(); //attempts to get null date data from method
 	}
+	
+	@Test //tests if getSocketConnectionTimeout is functional
+	public void testGetSocketConnectionTimeout() throws Exception {
+		
+		testEmail.getSocketConnectionTimeout(); //calls the method
+	}
 }
