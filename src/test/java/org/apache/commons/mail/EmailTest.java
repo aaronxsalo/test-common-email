@@ -77,4 +77,14 @@ public class EmailTest {
 		
 		testEmail.addHeader(noName, noValue); //calls addHeader with the null values
 	}
+	
+	@Test //tests addReplyTo with correct string arguments
+	public void testAddReplyTo() throws Exception {
+		
+		String name = "Bob"; //name string
+		
+		testEmail.addReplyTo(TEST_EMAILS[0], name); //passes first email and name string
+		
+		assertEquals(name + " <" +TEST_EMAILS[0] + ">", String.valueOf(testEmail.getReplyToAddresses().get(0))); //checks to see if the reply to address added is correct using the proper formatting
+	}
 }
