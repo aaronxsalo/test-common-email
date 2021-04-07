@@ -119,4 +119,14 @@ public class EmailTest {
 		testEmail.buildMimeMessage();
 		testEmail.buildMimeMessage();
 	}
+	
+	@Test (expected = EmailException.class) //tests buildMimeMessage method with missing from address
+	public void testBuildMimeMessageIncorrect2() throws Exception {
+		String hostName = "100.100.0.1"; //host name string
+		
+		testEmail.setHostName(hostName); //requires host name 
+		testEmail.addTo(TEST_EMAILS[1]); //requires to address
+		
+		testEmail.buildMimeMessage();
+	}
 }
