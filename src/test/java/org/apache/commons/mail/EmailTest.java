@@ -129,4 +129,20 @@ public class EmailTest {
 		
 		testEmail.buildMimeMessage();
 	}
+	
+	@Test (expected = EmailException.class) //tests getMailSession when there is not one 
+	public void testGetMailSessionIncorrect() throws Exception {
+		
+		assertEquals(null, testEmail.getMailSession()); //checks if session is null because nothing is set
+	}
+		
+	@Test //tests if correct arguments are passed to getHostNameCorrect
+	public void testGetHostNameCorrect() throws Exception {
+		
+		String hostName = "100.100.0.1"; //host name string
+		
+		testEmail.setHostName(hostName); //passes host name string
+				
+		assertEquals(hostName, testEmail.getHostName()); //checks to see if the host name is equal to the argument passed
+	}
 }
