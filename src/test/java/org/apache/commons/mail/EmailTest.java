@@ -44,4 +44,13 @@ public class EmailTest {
 		assertEquals(3, testEmail.getBccAddresses().size()); //checking if the size of the BCC address list is equal to 3
 		
 	}
+	
+	@Test (expected = EmailException.class) //tests if an incorrect null argument is passed to addBcc
+	public void testAddBccIncorrect() throws Exception {
+		
+		String[] nullString = null; //null array of strings
+		testEmail.addBcc(nullString); //testing the addBcc function with null strings
+		
+		assertEquals(0, testEmail.getBccAddresses().size()); //checking if the size of the BCC address list is equal to 0
+	}
 }
