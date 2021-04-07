@@ -68,4 +68,13 @@ public class EmailTest {
 		
 		testEmail.addHeader("H1", "Person"); //passes a name and value as strings
 	}
+	
+	@Test (expected = IllegalArgumentException.class) //tests if an incorrect null argument is passed to addHeader
+	public void testAddHeaderIncorrect() throws Exception {
+		
+		String noName = null; //null name string
+		String noValue = null; //null value string
+		
+		testEmail.addHeader(noName, noValue); //calls addHeader with the null values
+	}
 }
