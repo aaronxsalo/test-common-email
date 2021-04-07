@@ -62,4 +62,10 @@ public class EmailTest {
 		assertEquals(1, testEmail.getCcAddresses().size()); //makes sure only one email is in the list
 		
 	}
+	
+	@Test //tests if correct arguments are passed to addHeader
+	public void testAddHeaderCorrect() throws Exception {
+		
+		testEmail.addHeader("H1", "Person"); //passes a name and value as strings
+	}
 }
