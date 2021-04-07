@@ -107,4 +107,16 @@ public class EmailTest {
 		testEmail.buildMimeMessage(); //call for buildMimeMessage
 		testEmail.getMailSession(); //call for getMailSession
 	}
+	
+	@Test (expected = IllegalStateException.class) //tests buildMimeMessage method with missing content and with calling the method twice in a row
+	public void testBuildMimeMessageIncorrect1() throws Exception {
+		String hostName = "100.100.0.1"; //host name string
+		
+		testEmail.setHostName(hostName); //requires host name 
+		testEmail.setFrom(TEST_EMAILS[0]); //requires from address
+		testEmail.addTo(TEST_EMAILS[1]); //requires to address
+		
+		testEmail.buildMimeMessage();
+		testEmail.buildMimeMessage();
+	}
 }
