@@ -53,4 +53,13 @@ public class EmailTest {
 		
 		assertEquals(0, testEmail.getBccAddresses().size()); //checking if the size of the BCC address list is equal to 0
 	}
+	
+	@Test //tests if a correct argument is passed to addCc 
+	public void testAddCc() throws Exception {
+		
+		testEmail.addCc(TEST_EMAILS[0]); //passes the first email from the array
+		
+		assertEquals(1, testEmail.getCcAddresses().size()); //makes sure only one email is in the list
+		
+	}
 }
