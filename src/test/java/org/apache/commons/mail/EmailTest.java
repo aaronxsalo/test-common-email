@@ -87,4 +87,24 @@ public class EmailTest {
 		
 		assertEquals(name + " <" +TEST_EMAILS[0] + ">", String.valueOf(testEmail.getReplyToAddresses().get(0))); //checks to see if the reply to address added is correct using the proper formatting
 	}
+	
+	@Test //tests both the buildMimeMessage and getMailSession methods
+	public void testBuildMimeMessageGetMailSession() throws Exception {
+		
+		String hostName = "100.100.0.1"; //host name string
+				
+		testEmail.setHostName(hostName); //requires host name 
+		testEmail.setFrom(TEST_EMAILS[0]); //requires from address
+		testEmail.addTo(TEST_EMAILS[1]); //requires to address
+		testEmail.setContent(toString(), "lfdkjdks");
+		testEmail.setSmtpPort(666);
+		testEmail.setSubject("something");
+		testEmail.setCharset("ISO-8859-1");
+		testEmail.addBcc(TEST_EMAILS[2]);
+		testEmail.addCc(TEST_EMAILS[2]);
+		testEmail.addHeader("H1", "Stuff");
+				
+		testEmail.buildMimeMessage(); //call for buildMimeMessage
+		testEmail.getMailSession(); //call for getMailSession
+	}
 }
